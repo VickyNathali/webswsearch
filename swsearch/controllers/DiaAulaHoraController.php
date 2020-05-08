@@ -119,7 +119,6 @@ class DiaAulaHoraController extends Controller {
             $session->remove('id_per_listar');
             $session->remove('id_car_listar');
         };
-
         $dias = Dia::find('DESCRIPCION_DIA')->all();
         $d = Array();
         $cont_d = 0;

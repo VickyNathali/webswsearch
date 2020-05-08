@@ -177,7 +177,7 @@ class AsigDocPerController extends Controller {
     public function actionListar_pdf() {
         //Llamamos a la conexión de la base de datos
         $db = Yii::$app->db;
-        //asignamos las variables de sesion a una variable periodo-carrera
+        //asignamos las variables de sesion a una variable periodo y carrera
         $session = Yii::$app->session;
         $periodo = ' ';
         $carrera = ' ';
