@@ -8,6 +8,9 @@ use yii\widgets\ActiveForm;
 /* @var $form yii\widgets\ActiveForm */
 ?>
 <style> 
+    ::placeholder {        
+    font-style: italic;
+    }
     #cuadroDI {
         border-top: 1px solid #c2ccd1;
         border-right: 1px solid #c2ccd1;
@@ -35,7 +38,7 @@ use yii\widgets\ActiveForm;
                 <div class="panel-heading" align="center" id="subtitl" >DATOS INFORMATIVOS</div>
                 <div class="panel-body">
 
-                    <?= $form->field($model, 'NOMBRE_AUL')->textInput(['maxlength' => true, 'autofocus' => 'autofocus', 'placeholder' => 'LAB. PROGRAMACIÓN - EIS', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();']) ?>
+                    <?= $form->field($model, 'NOMBRE_AUL')->textInput(['maxlength' => true, 'autofocus' => 'autofocus', 'placeholder' => 'Ej.: LAB. PROGRAMACIÓN - EIS', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();']) ?>
                     <?php
                     //*** CREADO PARA CONSULTAR SI EL AULA O LABORATORIO YA EXISTE EN EL SISTEMA***
                     $this->registerJs(
@@ -71,8 +74,8 @@ use yii\widgets\ActiveForm;
                     <div id='mensaje_codigo'>
                     </div>                    
 
-                    <?= $form->field($model, 'LATITUD_AUL')->textInput(['maxlength' => true]) ?>
-                    <?= $form->field($model, 'LONGITUD_AUL')->textInput(['maxlength' => true]) ?>
+                    <?= $form->field($model, 'LATITUD_AUL')->textInput(['maxlength' => true,'placeholder' => 'Ej.: -1.656072']) ?>
+                    <?= $form->field($model, 'LONGITUD_AUL')->textInput(['maxlength' => true,'placeholder' => 'Ej.: -78.679219']) ?>
                     <?= $form->field($model, 'ESTADO_AUL')->radioList([1 => 'ACTIVA', 0 => 'INACTIVA'])->label('Estado'); ?>
 
                     <?php
@@ -86,7 +89,7 @@ use yii\widgets\ActiveForm;
                     // Fin de la foto
                     ?>                    
                     <?= $form->field($model, 'FOTO_AUL')->fileInput(['required'=>true]) ?>
-                    <?= $form->field($model, 'OBSERVACIONES_AUL')->textarea(['maxlength' => true, 'placeholder' => 'Laboratorio ubicado en el primer piso del edificio central de la FIE a la derecha al salir de elevador dirigirse al fondo...']) ?>
+                    <?= $form->field($model, 'OBSERVACIONES_AUL')->textarea(['maxlength' => true, 'placeholder' => 'Ej.: Laboratorio ubicado en el primer piso del edificio central de la FIE a la derecha al salir de elevador dirigirse al fondo...']) ?>
 
                 </div>                    
             </div>

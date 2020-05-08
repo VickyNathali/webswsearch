@@ -9,6 +9,9 @@ use yii\widgets\ActiveForm;
 ?>
 
 <style> 
+    ::placeholder {        
+    font-style: italic;
+    }
     #cuadroDI {
         border-top: 1px solid #c2ccd1;
         border-right: 1px solid #c2ccd1;
@@ -34,7 +37,7 @@ use yii\widgets\ActiveForm;
             <div class="panel panel-footer" id="cuadroDI" >
                 <div class="panel-heading" align="center" id="subtitl" >DATO INFORMATIVO</div>
                 <div class="panel-body">
-                    <?= $form->field($model, 'DESCRIPCION_SEM')->textInput(['maxlength' => true, 'autofocus' => 'autofocus','placeholder' => 'PRIMERO','onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'onkeypress' => 'return soloLetras(event);']) ?>
+                    <?= $form->field($model, 'DESCRIPCION_SEM')->textInput(['maxlength' => true, 'autofocus' => 'autofocus','placeholder' => 'Ej.: SEGUNDO','onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'onkeypress' => 'return soloLetras(event);']) ?>
                     <?php
                     //*** CREADO PARA CONSULTAR SI EL SEMESTRE YA EXISTE EN EL SISTEMA***
                     $this->registerJs(

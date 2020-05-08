@@ -8,6 +8,9 @@ use yii\widgets\ActiveForm;
 /* @var $form yii\widgets\ActiveForm */
 ?>
 <style> 
+    ::placeholder {        
+    font-style: italic;
+    }
     #cuadroDI {
         border-top: 1px solid #c2ccd1;
         border-right: 1px solid #c2ccd1;
@@ -37,17 +40,17 @@ use yii\widgets\ActiveForm;
             <div class="panel panel-footer" id="cuadroDI" >
                 <div class="panel-heading" align="center" id="subtitl" >DATOS PERSONALES</div>
                 <div class="panel-body">
-                    <?= $form->field($model, 'CEDULA_DOC')->textInput(['maxlength' => true, 'autofocus' => 'autofocus','placeholder' => '2200000001','onkeypress' => 'return soloNumeros(event);', 'onchange' => 'js:validar("");']) ?>
+                    <?= $form->field($model, 'CEDULA_DOC')->textInput(['maxlength' => true, 'autofocus' => 'autofocus','placeholder' => 'Ej.: 2200000001','onkeypress' => 'return soloNumeros(event);', 'onchange' => 'js:validar("");']) ?>
                     <div id="salida"> </div>
                     <div id='mensaje_codigo'> </div> 
-                    <?= $form->field($model, 'NOMBRES_DOC')->textInput(['maxlength' => true, 'placeholder' => 'JUAN ALBERTO', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'onkeypress' => 'return soloLetras(event);', 'onpaste' => 'return false']) ?>
-                    <?= $form->field($model, 'APELLIDOS_DOC')->textInput(['maxlength' => true, 'placeholder' => 'ALTAMIRANO LÓPEZ', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'onkeypress' => 'return soloLetras(event);', 'onpaste' => 'return false']) ?>
-                    <?= $form->field($model, 'TITULO_DOC')->textInput(['maxlength' => true, 'placeholder' => 'INGENIERO INFORMÁTICO', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'onkeypress' => 'return soloLetras(event);', 'onpaste' => 'return false']) ?>
-                    <?= $form->field($model, 'CELULAR_DOC')->textInput(['maxlength' => true, 'placeholder' => '0987654321', 'onkeypress' => 'return soloNumeros(event);', 'onchange' => 'js:validarCelular("");']) ?>
+                    <?= $form->field($model, 'NOMBRES_DOC')->textInput(['maxlength' => true, 'placeholder' => 'Ej.: JUAN ALBERTO', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'onkeypress' => 'return soloLetras(event);', 'onpaste' => 'return false']) ?>
+                    <?= $form->field($model, 'APELLIDOS_DOC')->textInput(['maxlength' => true, 'placeholder' => 'Ej.: ALTAMIRANO LÓPEZ', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'onkeypress' => 'return soloLetras(event);', 'onpaste' => 'return false']) ?>
+                    <?= $form->field($model, 'TITULO_DOC')->textInput(['maxlength' => true, 'placeholder' => 'Ej.: INGENIERO INFORMÁTICO', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'onkeypress' => 'return soloLetras(event);', 'onpaste' => 'return false']) ?>
+                    <?= $form->field($model, 'CELULAR_DOC')->textInput(['maxlength' => true, 'placeholder' => 'Ej.: 0987654321', 'onkeypress' => 'return soloNumeros(event);', 'onchange' => 'js:validarCelular("");']) ?>
                     <div id="celular"> </div>        
-                    <?= $form->field($model, 'CORREO_DOC')->textInput(['maxlength' => true, 'placeholder' => 'j.altamirano@espoch.edu.ec', 'onkeyup' => 'javascript:this.value=this.value.toLowerCase();', 'onchange' => 'js:validarEmail("");']) ?>
+                    <?= $form->field($model, 'CORREO_DOC')->textInput(['maxlength' => true, 'placeholder' => 'Ej.: j.altamirano@espoch.edu.ec', 'onkeyup' => 'javascript:this.value=this.value.toLowerCase();', 'onchange' => 'js:validarEmail("");']) ?>
                     <div id="email"> </div>
-                    <?= $form->field($model, 'LINK_PAG_DOC')->textInput(['maxlength' => true, 'placeholder' => 'https://www.linkedin.com/in/juan-altamirano-2aa677175/', 'onkeyup' => 'javascript:this.value=this.value.toLowerCase();']) ?>
+                    <?= $form->field($model, 'LINK_PAG_DOC')->textInput(['maxlength' => true, 'placeholder' => 'Ej.: https://www.linkedin.com/in/juan-altamirano-2aa677175/', 'onkeyup' => 'javascript:this.value=this.value.toLowerCase();']) ?>
                     <?= $form->field($model, 'ESTADO_DOC')->radioList([1 => 'ACTIVO', 0 => 'INACTIVO'])->label('Estado') ?>
 
                 </div>                    

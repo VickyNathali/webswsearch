@@ -28,6 +28,9 @@ if ($band == 1) {
 }
 ?>
 <style> 
+    ::placeholder {        
+    font-style: italic;
+    }
     /*botones de modificar dia-aula-hora*/
     #botones{
         float: right;

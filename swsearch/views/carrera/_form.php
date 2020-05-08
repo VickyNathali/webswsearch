@@ -9,7 +9,10 @@ use pcrt\widgets\select2\Select2; //libreria para busqueda avanzada  mediante es
 /* @var $model app\models\Carrera */
 /* @var $form yii\widgets\ActiveForm */
 ?>
-<style> 
+<style>
+    ::placeholder {        
+    font-style: italic;
+    }
    #cuadroDI {
         border-top: 1px solid #c2ccd1;
         border-right: 1px solid #c2ccd1;
@@ -36,7 +39,7 @@ use pcrt\widgets\select2\Select2; //libreria para busqueda avanzada  mediante es
             <div class="panel panel-footer" id="cuadroDI" >
                 <div class="panel-heading" align="center" id="subtitl" >DATOS INFORMATIVOS</div>
                 <div class="panel-body">
-                    <?= $form->field($model, 'NOMBRE_CAR')->textInput(['maxlength' => true, 'autofocus' => 'autofocus','placeholder' => 'INGENIERÍA EN INFORMÁTICA', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'onkeypress' => 'return soloLetras(event);']) ?>
+                    <?= $form->field($model, 'NOMBRE_CAR')->textInput(['maxlength' => true, 'autofocus' => 'autofocus','placeholder' => 'Ej.: INGENIERÍA EN INFORMÁTICA', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'onkeypress' => 'return soloLetras(event);']) ?>
                     <?php
                     //*** CREADO PARA CONSULTAR SI LA CARRERA YA EXISTE EN EL SISTEMA***
                     $this->registerJs(
@@ -71,9 +74,9 @@ use pcrt\widgets\select2\Select2; //libreria para busqueda avanzada  mediante es
 
                     <div id='mensaje_codigo'>
                     </div> 
-                    <?= $form->field($model, 'DIRECTOR_CAR')->textInput(['maxlength' => true,'placeholder' => 'ING. PEPE OLVARES', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'onkeypress' => 'return soloLetras(event);']) ?>        
+                    <?= $form->field($model, 'DIRECTOR_CAR')->textInput(['maxlength' => true,'placeholder' => 'Ej.: ING. PEPE OLIVARES', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'onkeypress' => 'return soloLetras(event);']) ?>        
                     
-                    <?= $form->field($model, 'TITULO_OBT_CAR')->textInput(['maxlength' => true, 'placeholder' => 'INGENIERO/A EN INFORMÁTICA', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'onkeypress' => 'return soloLetras(event);']) ?>       
+                    <?= $form->field($model, 'TITULO_OBT_CAR')->textInput(['maxlength' => true, 'placeholder' => 'Ej.: INGENIERO/A EN INFORMÁTICA', 'onkeyup' => 'javascript:this.value=this.value.toUpperCase();', 'onkeypress' => 'return soloLetras(event);']) ?>       
                     
                      <?php
                     //para la semestre                     

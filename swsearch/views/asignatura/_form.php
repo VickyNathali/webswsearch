@@ -8,6 +8,9 @@ use yii\widgets\ActiveForm;
 /* @var $form yii\widgets\ActiveForm */
 ?>
 <style> 
+    ::placeholder {        
+    font-style: italic;
+    }
     #cuadroDI {
         border-top: 1px solid #c2ccd1;
         border-right: 1px solid #c2ccd1;
@@ -35,7 +38,7 @@ use yii\widgets\ActiveForm;
             <div class="panel panel-footer" id="cuadroDI" >
                 <div class="panel-heading" align="center" id="subtitl" >DATOS INFORMATIVOS</div>
                 <div class="panel-body">
-                    <?= $form->field($model, 'CODIGO_ASIG')->textInput(['maxlength' => true,'autofocus' => 'autofocus','placeholder' => 'SOFI1234']) ?>
+                    <?= $form->field($model, 'CODIGO_ASIG')->textInput(['maxlength' => true,'autofocus' => 'autofocus','placeholder' => 'Ej.: SOFI1234']) ?>
                      <?php
                     //*** CREADO PARA CONSULTAR SI LA ASIGNATURA YA EXISTE EN EL SISTEMA***
                     $this->registerJs(
@@ -67,7 +70,7 @@ use yii\widgets\ActiveForm;
                     ?>
                     <div id='mensaje_codigo'> </div> 
                     
-                    <?= $form->field($model, 'NOMBRE_ASIG')->textInput(['maxlength' => true,'placeholder' => 'INFORMÁTICA','onkeyup' => 'javascript:this.value=this.value.toUpperCase();']) ?>
+                    <?= $form->field($model, 'NOMBRE_ASIG')->textInput(['maxlength' => true,'placeholder' => 'Ej.: INFORMÁTICA','onkeyup' => 'javascript:this.value=this.value.toUpperCase();']) ?>
                     <?= $form->field($model, 'OBSERVACIONES_ASIG')->textarea(['maxlength' => true]) ?>
                     <?= $form->field($model, 'ESTADO_ASIG')->radioList([1 => 'ACTIVA', 0 => 'INACTIVA'])->label('Estado'); ?>
 
