@@ -34,11 +34,13 @@ class Persona extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['CEDULA_PER', 'NOMBRES_PER', 'APELLIDOS_PER', 'USUARIO_PER','TOKEN_PER'], 'required'],
-            [['FOTO_PER'], 'file','extensions'=>'jpg,png,jpeg,gif'],
+            [['CEDULA_PER', 'NOMBRES_PER', 'APELLIDOS_PER', 'USUARIO_PER','CONTRASENA_PER'], 'required'],
+            [['FOTO_PER'], 'file','extensions'=>'jpg,png,jpeg'],
             [['CEDULA_PER'], 'string', 'max' => 10],
             [['TOKEN_PER'], 'string', 'max' => 50],
-            [['NOMBRES_PER', 'APELLIDOS_PER','USUARIO_PER','CONTRASENA_PER'], 'string', 'max' => 30],
+            [['USUARIO_PER'], 'string', 'length' => [4, 30]],
+            [['CONTRASENA_PER'], 'string', 'length' => [6, 30]],
+            [['NOMBRES_PER', 'APELLIDOS_PER'], 'string', 'max' => 30],
             [['CEDULA_PER'], 'unique'],          
         ];
     }

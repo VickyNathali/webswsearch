@@ -16,7 +16,7 @@ $this->params['breadcrumbs'][] = 'Modificar';
     
     <b><h5 style="font-family:Trebuchet MS; color:blue; ">Ingresar nueva contraseña en caso de querer cambiarla, caso contrario dejar el campo en blanco.</h5></b>
     <br>
-    <?= $this->render('_form', [
+    <?= $this->render('_form_m', [
         'model' => $model,
         'model_adm' => $model_adm,
     ]) ?>

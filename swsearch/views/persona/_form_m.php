@@ -9,7 +9,7 @@ use yii\widgets\ActiveForm;
 ?>
 
 <style> 
-    ::placeholder {        
+    ::placeholder {
     font-style: italic;
     }
     #cuadroDI {
@@ -37,7 +37,7 @@ use yii\widgets\ActiveForm;
             <div class="panel panel-footer" id="cuadroDI" >
                 <div class="panel-heading" align="center" id="subtitl" >DATOS PERSONALES</div>
                 <div class="panel-body">
-                    <?= $form->field($model, 'CEDULA_PER')->textInput(['maxlength' => true, 'autofocus' => 'autofocus', 'placeholder' => 'Ej.: 2200000001', 'onkeypress' => 'return soloNumeros(event);', 'onchange' => 'js:validar("validar");']) ?> 
+                    <?= $form->field($model, 'CEDULA_PER')->textInput(['maxlength' => true, 'autofocus' => 'autofocus', 'placeholder' => '2200000001', 'onkeypress' => 'return soloNumeros(event);', 'onchange' => 'js:validar("validar");']) ?> 
                     <div id="salida">      
                     </div>
                     <div id='mensaje_codigo'>
@@ -81,7 +81,7 @@ use yii\widgets\ActiveForm;
                             $form->field($model, 'CONTRASENA_PER')->passwordInput(['maxlength' => true, 'placeholder' => 'Ej.: @Jt1234'])
                             ->label('Contraseña ( <span onclick="mostrarPassword()"  class="fa fa-eye-slash icon"> </span> )')
                     ?>
-                    
+                    <?= $form->field($model, 'TOKEN_PER')->radioList([1 => 'ACTIVO', 0 => 'INACTIVO']) ?>
                     <?php
                     if ($model->FOTO_PER != false) {
                         echo Html::img('@web/imagenes/Fotos/' . $model->FOTO_PER, ['height' => 100, 'width' => 100, 'class' => 'img-rounded']);

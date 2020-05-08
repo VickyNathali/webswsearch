@@ -106,19 +106,15 @@ class PersonaController extends Controller {
         $model = new Persona();
         //crear un modelo (variable)administrador  para pedir los datos del administrador
         $model_adm = new Administrador();
-        $model->TOKEN_PER = 1; //esta afuera del post por que si se muestra en la interfaz la opcion (sale por defecto seleccionado activo)
-
+        
         if ($model->load(Yii::$app->request->post()) && $model_adm->load(Yii::$app->request->post())) {
-            //$model->CONTRASENA_PER = md5($model->CONTRASENA_PER);
-            
-            //Subiendo Fotos
+            $model->TOKEN_PER = "1"; //ACTIVA=1 INACTIVO=0, está adentro por que no se muestra la opcion en interfaz
             $model->FOTO_PER = UploadedFile::getInstance($model, 'FOTO_PER');
             if ($model->FOTO_PER && $model->validate()) {
                 $image_name = $model->NOMBRES_PER . rand(1, 4000) . '.' . $model->FOTO_PER->extension;
                 $image_path = 'imagenes/Fotos/' . $image_name;
                 $model->FOTO_PER->saveAs($image_path);
                 $model->FOTO_PER = $image_name; //en la base de datos guarda el nombre con un número aleatorio (Juan1256)           
-                //$model->FOTO_PER->saveAs('imagenes/Fotos/' . $model->FOTO_PER->baseName . '.' . $model->FOTO_PER->extension);
             } 
             // Fin subiendo fotos
             
