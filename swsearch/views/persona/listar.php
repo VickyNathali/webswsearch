@@ -86,31 +86,51 @@ $this->title = 'Listar usuarios';
                 <center> <b>LISTA DE USUARIOS DEL APLICATIVO MÓVIL </b></center>
             </div>
             <div class="panel-body">
+                <h5 style="text-align: center"><b>ACTIVOS </b></h5>       
                 <table class="table table-bordered table-condensed table-responsive table-hover table-striped ">
                     <thead>
                     <th width="5%"><center>CÉDULA</center></th>
                     <th width="35%"><center>APELLIDOS Y NOMBRES</center></th>
-                    <th width="30%"><center>CARRERA</center></th> 
-                    <th><center>ESTADO</center></th>
+                    <th width="30%"><center>CARRERA</center></th>
                     </thead>  
                     <tbody>
                         <?php
                         foreach ($modelo_usuario as $usu) {
+                             if($usu->TOKEN_PER == 1){
                             echo "<tr>";
                             foreach ($modelo_est as $est) {
                                 if ($usu->CEDULA_PER == $est->CEDULA_PER) {
                                     echo "<td>" . $usu->CEDULA_PER . "</td>";
                                     echo "<td>" . $usu->APELLIDOS_PER . " " . $usu->NOMBRES_PER . "</td>";
-                                    echo "<td>" . $est->cAR->NOMBRE_CAR . "</td>";
-                                    if ($usu->TOKEN_PER == 1) {
-                                        echo "<td>" . "ACTIVO" . "</td>";
-                                    } else {
-                                        echo "<td>" . "INACTIVO" . "</td>";
-                                    }
+                                    echo "<td>" . $est->cAR->NOMBRE_CAR . "</td>";                                    
                                 }
                             }
                             echo "</tr>";
-                        }
+                        }}
+                        ?>
+                    </tbody>
+                </table>
+                <h5 style="text-align: center"><b>INACTIVOS </b></h5>       
+                <table class="table table-bordered table-condensed table-responsive table-hover table-striped ">
+                    <thead>
+                    <th width="5%"><center>CÉDULA</center></th>
+                    <th width="35%"><center>APELLIDOS Y NOMBRES</center></th>
+                    <th width="30%"><center>CARRERA</center></th>
+                    </thead>  
+                    <tbody>
+                        <?php
+                        foreach ($modelo_usuario as $usu) {
+                             if($usu->TOKEN_PER == 0){
+                            echo "<tr>";
+                            foreach ($modelo_est as $est) {
+                                if ($usu->CEDULA_PER == $est->CEDULA_PER) {
+                                    echo "<td>" . $usu->CEDULA_PER . "</td>";
+                                    echo "<td>" . $usu->APELLIDOS_PER . " " . $usu->NOMBRES_PER . "</td>";
+                                    echo "<td>" . $est->cAR->NOMBRE_CAR . "</td>";                                    
+                                }
+                            }
+                            echo "</tr>";
+                        }}
                         ?>
                     </tbody>
                 </table>

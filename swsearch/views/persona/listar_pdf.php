@@ -120,35 +120,61 @@ use yii\helpers\Html;
         <br>                   
         <h3 align="center">LISTA DE USUARIOS DEL APLICATIVO MÓVIL</h3>
         <br>
+        <h4 align="center">ACTIVOS</h4>
         <table border="1" cellpadding="2" cellspacing="0" width="100%">
             <thead style="text-align:center;" >
                 <tr bgcolor='#d9edf7'>
-                    <td width="14%"><b>CÉDULA</b></td>
-                    <td width="35%"><b> APELLIDOS Y NOMBRES</b></td>                       
-                    <td width="26%"><b>CARRERA</b></td>  
-                    <td><b>TIPO DE USUARIO</b></td>
+                    <td width="15%"><b>CÉDULA</b></td>
+                    <td width="55%"><b> APELLIDOS Y NOMBRES</b></td>                       
+                    <td width="30%"><b>CARRERA</b></td> 
                 </tr></thead>
             <tbody>
                 <?php
                 foreach ($usuarios as $usu) {
+                    if ($usu->TOKEN_PER == 1) {
                     echo "<tr>";
                     foreach ($estudiante as $est) {
                         if ($usu->CEDULA_PER == $est->CEDULA_PER) {
                             echo "<td>" . $usu->CEDULA_PER . "</td>";
                             echo "<td>" . $usu->APELLIDOS_PER . " " . $usu->NOMBRES_PER . "</td>";
-                            echo "<td>" . $est->cAR->NOMBRE_CAR . "</td>";
-                            if ($usu->TOKEN_PER == 1) {
-                                echo "<td>" . "Activo" . "</td>";
-                            } else {
-                                echo "<td>" . "Inactivo" . "</td>";
-                            }
+                            echo "<td>" . $est->cAR->NOMBRE_CAR . "</td>";                            
                         }
                     }
                     echo "</tr>";
+                    }
                 }
                 ?>
             </tbody>
         </table>
+        <br>  
+        <h4 align="center">INACTIVOS</h4>
+        <table border="1" cellpadding="2" cellspacing="0" width="100%">
+            <thead style="text-align:center;" >
+                <tr bgcolor='#d9edf7'>
+                    <td width="15%"><b>CÉDULA</b></td>
+                    <td width="55%"><b> APELLIDOS Y NOMBRES</b></td>                       
+                    <td width="30%"><b>CARRERA</b></td> 
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                foreach ($usuarios as $usu) {
+                    if ($usu->TOKEN_PER == 0) {
+                    echo "<tr>";
+                    foreach ($estudiante as $est) {
+                        if ($usu->CEDULA_PER == $est->CEDULA_PER) {
+                            echo "<td>" . $usu->CEDULA_PER . "</td>";
+                            echo "<td>" . $usu->APELLIDOS_PER . " " . $usu->NOMBRES_PER . "</td>";
+                            echo "<td>" . $est->cAR->NOMBRE_CAR . "</td>";                            
+                        }
+                    }
+                    echo "</tr>";
+                     }
+                }     
+                ?>
+            </tbody>
+        </table>
+         
     </div>
 </div>
 
