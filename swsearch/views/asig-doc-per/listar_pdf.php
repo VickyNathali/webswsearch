@@ -23,7 +23,7 @@ use yii\helpers\Html;
         Sistema-SwSearch
         &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
         Página {PAGENO} de {nb}
-        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
         <b>Impreso el </b>
         <?= date('Y-m-d H:i:s') ?>         
          </div>   
@@ -78,24 +78,30 @@ use yii\helpers\Html;
                         </tr>
                     </thead>
                     <tbody>
-                        <?php
-                        $k;
+                        <?php  
+                        $cont = 1;
                         $cont_materias = 1;
                         $bandera_materia = 0;
                         $lista_materias[] = array();
                         foreach ($listar_asigdoc as $mat) { //variable j
                             echo "<tr>";
                             //--------------------------------------------------   
-                            foreach ($lista_materias as $lis){
-                                if ($lis == $mat['CODIGO_ASIG'])
-                                    $bandera = 1;
-                            }                                                     
-                            //--------------------------------------------------                         
+//                            foreach ($lista_materias as $lis){
+//                                if ($lis == $mat['CODIGO_ASIG'])
+//                                    $bandera_materia = 1;
+//                            } 
+                            
+                            for ($k = 0; $k < $cont_materias; $k++) {
+                                if ($lista_materias[$k] == $mat['CODIGO_ASIG'])
+                                    $bandera_materia = 1;
+                            }
+                            //--------------------------------------------------  
                             if ($mat['ID_SEM'] == $sem['ID_SEM'] && $bandera_materia == 0) {
-                                $lista_materias[$cont_materias-1] = $mat['CODIGO_ASIG'];
-                                echo "<td style='text-align:center;'>" . $cont_materias . "</td>";
+                                $lista_materias[$cont_materias--] = $mat['CODIGO_ASIG'];
+                                echo "<td style='text-align:center;'>" . $cont++ . "</td>";
                                 echo "<td>" . $mat['CODIGO_ASIG'] . "</td>";
                                 echo "<td>";
+                                $cont_materias++;
                                 ?>
                                 <table border="1" cellspacing="0" width="100%">
                                     <thead style="text-align:center;" >
@@ -106,7 +112,7 @@ use yii\helpers\Html;
                                     </thead>
                                     <tbody>
                                         <?php
-                                        foreach ($listar_asigdoc as $pardoc) { //variable j
+                                        foreach ($listar_asigdoc as $pardoc) { //variable m
                                             echo "<tr>";
                                             if ($mat['CODIGO_ASIG'] == $pardoc['CODIGO_ASIG']) {
                                                 echo "<td style='text-align:center;'>" . $pardoc['PARALELO'] . "</td>";
@@ -119,7 +125,7 @@ use yii\helpers\Html;
                                 </table>
                                 <?php
                                 echo "</td>"; //fin del td que contiene la segunda tabla
-                                $cont_materias = $cont_materias + 1;
+                                $cont_materias = $cont_materias +1;
                             } //fin del if de bandera_materia  
                             echo "</tr>"; //fin de tr debajo del foreach $mat
                         } //fin de segundo foreach $mat
