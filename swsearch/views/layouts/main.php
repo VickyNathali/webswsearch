@@ -389,7 +389,7 @@ DashboardAsset::register($this);
         <footer class="footer">
             <div class="container">
                 <p class="pull-left">&copy; FIE - ESPOCH <?= date('Y') ?></p>                
-                <?= $session['estado_adm_swsearch'] ?>
+                <?php// $session['estado_adm_swsearch'] ?>
                 <p class="pull-right">Desarrollado por VA</p>
             </div>
         </footer>
